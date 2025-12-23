@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import Groq from "groq-sdk";
 import bodyParser from "body-parser";
 import { ElevenLabsClient } from "elevenlabs";
-//import { answerQuestion } from "./ask.js";
 dotenv.config();
 
 const app = express();
