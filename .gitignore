@@ -1,6 +1,4 @@
 node_modules
 .env
-src/ask.js
-src/chroma.js
-src/embed.js
-src/llm.js
+src
+api/server.js
