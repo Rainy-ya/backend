@@ -1,5 +1,5 @@
 import Groq from "groq-sdk";
-import { ElevenLabsClient } from "elevenlabs";
+import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const elevenLabsClient = new ElevenLabsClient({ apiKey: process.env.ELEVENLABS_API_KEY });

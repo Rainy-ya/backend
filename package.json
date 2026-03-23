@@ -7,11 +7,11 @@
   },
   "main": "src/server.js",
   "dependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.40.0",
     "body-parser": "^2.2.1",
     "chromadb": "latest",
     "cors": "^2.8.5",
     "dotenv": "latest",
-    "elevenlabs": "^1.59.0",
     "express": "latest",
     "groq-sdk": "latest"
   }
