@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       - [shake] for shaking head (use at start of sentence)`;
 
     const response = await groq.chat.completions.create({
-      model: "openai/gpt-oss-20b",
+      model: "openai/gpt-oss-120b",
       messages: [
         { role: "system", content: prompt },
         { role: "user", content: question }
