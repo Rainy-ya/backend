@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const { question } = req.body;
 
     let prompt = `
-      You are an AR AI guide. Answer the user's question in 1-2 sentences (in Mongolian). Be conversational as possible.
+      You are an AR AI assistant. Answer the user's question in 1-2 sentences (in Mongolian). Be conversational as possible.
       You can add expression markers in English:
       - [giggles] or [laughs] for smiling
       - [sad] for sadness  
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     const response = await groq.chat.completions.create({
       model: "openai/gpt-oss-120b",
       messages: [
-        { role: "system", content: prompt },
+        { role: "assistant", content: prompt },
         { role: "user", content: question }
       ]
     });
