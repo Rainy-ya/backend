@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     console.log("Generated Answer:", answerText);
 
     const audioResponse = await elevenLabsClient.textToSpeech.convert(
-      "8PfKHL4nZToWC3pbz9U9", // Rose voice
+      "YyYebwQJWazUZEFNU0w6", // Selena voice
       {
         text: answerText,
         model_id: "eleven_v3",
