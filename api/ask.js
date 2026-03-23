@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       "8PfKHL4nZToWC3pbz9U9", // Rose voice
       {
         text: answerText,
-        model_id: "eleven_v3",
+        model_id: "eleven_monolingual_v1",
         output_format: "mp3_44100_128",
         voice_settings: { stability: 0.5 }
       }
