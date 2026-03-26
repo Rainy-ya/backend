@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       "hpp4J3VqNfWAUOO0d1Us", // Bella(Default) voice
       {
         text: answerText,
-        model_id: "eleven_v3",
+        modelId: "eleven_v3",
         output_format: "mp3_44100_128",
         voice_settings: { stability: 0.0 }
       }
