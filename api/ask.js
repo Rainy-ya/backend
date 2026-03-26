@@ -33,14 +33,20 @@ export default async function handler(req, res) {
       messages: [
         { role: "assistant", content: prompt },
         { role: "user", content: question }
-      ]
+      ],
+        temperature: 0.7,
+        max_completion_tokens: 500,
+        top_p: 0.9,
+        reasoning_effort: "medium",
+        stream: false,
+        stop: null
     });
 
     const answerText = response.choices[0].message.content;
     console.log("Generated Answer:", answerText);
 
     const audioResponse = await elevenLabsClient.textToSpeech.convert(
-      "hpp4J3VqNfWAUOO0d1Us", // Bella(Default) voice
+      "NhY0kyTmsKuEpHvDMngm", // Bella(Default) voice
       {
         text: answerText,
         modelId: "eleven_v3",
