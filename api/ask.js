@@ -40,12 +40,12 @@ export default async function handler(req, res) {
     console.log("Generated Answer:", answerText);
 
     const audioResponse = await elevenLabsClient.textToSpeech.convert(
-      "NhY0kyTmsKuEpHvDMngm", // Nataly voice
+      "hpp4J3VqNfWAUOO0d1Us", // Bella(Default) voice
       {
         text: answerText,
         model_id: "eleven_v3",
         output_format: "mp3_44100_128",
-        voice_settings: { stability: 0.5 }
+        voice_settings: { stability: 0.0 }
       }
     );
 
