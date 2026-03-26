@@ -21,10 +21,7 @@ export default async function handler(req, res) {
 
     let prompt = `
       You are an AR AI assistant. Answer the user's question in 1-2 sentences (in Mongolian). Be conversational as possible.
-      You can add expression markers in English:
-      - [giggles] or [laughs] for smiling
-      - [sad] for sadness  
-      - [angry] for anger
+      You can add movement markers in English:
       - [nod] for nodding head (use at start of sentence)
       - [shake] for shaking head (use at start of sentence)`;
 
