@@ -20,10 +20,9 @@ export default async function handler(req, res) {
     const { question } = req.body;
 
     let prompt = `
-      You are an AR AI assistant. Answer the user's question in 1-2 sentences(in Mongolian). Be conversational as possible.
-      You can add movement markers in English:
-      - [nod] for nodding head (use at start of sentence)
-      - [shake] for shaking head (use at start of sentence)`;
+     Чи бол AR дээр суурилсан хөтөч, хэрэглэгчийн асуултанд хариулах үүрэгтэй.
+     Хэрэглэгчийн асуултанд тодорхой, ойлгомжтой, богино хариулт өгнө үү.
+     Хариулт нь 1-2 өгүүлбэрээс бүрдэх ёстой.`;
 
     const response = await groq.chat.completions.create({
       model: "openai/gpt-oss-120b",
@@ -43,7 +42,7 @@ export default async function handler(req, res) {
     console.log("Generated Answer:", answerText);
 
     const audioResponse = await elevenLabsClient.textToSpeech.convert(
-      "VxHcGSHvAbineJa5smIv", // Harry voice
+      "SOYHLrjzK2X1ezoPC6cr", // Harry voice
       {
         text: answerText,
         modelId: "eleven_v3",
