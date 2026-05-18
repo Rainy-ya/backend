@@ -1,5 +1,6 @@
 import Groq from "groq-sdk";
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
+import { conversationHistory, systemInstructions, behavioralGuidelines, addToConversationHistory } from "./prompt";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const elevenLabsClient = new ElevenLabsClient({ apiKey: process.env.ELEVENLABS_API_KEY });
@@ -19,10 +20,11 @@ export default async function handler(req, res) {
   try {
     const { question } = req.body;
 
-    let prompt = `
-     Чи бол AR дээр суурилсан хөтөч, хэрэглэгчийн асуултанд хариулах үүрэгтэй.
-     Хэрэглэгчийн асуултанд тодорхой, ойлгомжтой, богино хариулт өгнө үү.
-     Хариулт нь 1-2 өгүүлбэрээс бүрдэх ёстой.`;
+    let prompt = '';
+
+    addToConversationHistory('user', question);
+
+    prompt = `${systemInstructions}\n\n${behavioralGuidelines}\n\nConversation History:\n${conversationHistory.map(entry => `${entry.role}: ${entry.content}`).join('\n')}\n\nUser Question: ${question}\n\nAssistant Answer:`;
 
     const response = await groq.chat.completions.create({
       model: "openai/gpt-oss-120b",
@@ -39,7 +41,8 @@ export default async function handler(req, res) {
     });
 
     const answerText = response.choices[0].message.content;
-    console.log("Generated Answer:", answerText);
+
+    addToConversationHistory('assistant', answerText);
 
     const audioResponse = await elevenLabsClient.textToSpeech.convert(
       "SOYHLrjzK2X1ezoPC6cr", // Harry voice
